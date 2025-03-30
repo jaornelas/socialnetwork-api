@@ -41,3 +41,11 @@ const userSchema = new Schema<IUser>(
         id: false,
     }
 );
+
+userSchema.virtual('friendCount').get(function () {
+    return this.friends.length;
+});
+
+const User = model('User', userSchema);
+
+export default User;
