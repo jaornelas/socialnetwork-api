@@ -1,0 +1,25 @@
+{
+  "name": "socialnetwork-api",
+  "version": "1.0.0",
+  "description": "Build an API from scratch for a social network application where users can share their thoughts, react to friends' thoughts, and create a friend list.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "npm run build && node dist/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node dist/seeds/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/mongoose": "^5.11.96",
+    "typescript": "^5.8.2"
+  }
+}
