@@ -7,7 +7,7 @@ export const getUsers = async (_req: Request, res: Response) => {
 }
 
 //get single user by ID
-export const getSingleUser = async (_req: Request, res: Response) => {
+export const getUserByID = async (_req: Request, res: Response) => {
 
 }
 
