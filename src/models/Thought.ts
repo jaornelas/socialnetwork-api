@@ -1,11 +1,11 @@
 import { Schema, model, type Document } from 'mongoose';
-import { dataFormat } '../utils/dateFormat.js';
-import reactionSchmea from './Reaction.js'
+import { dateFormat } from '../utils/dateFormat.js';
+import reactionSchema from './Reaction.js'
 
 interface IThought extends Document {
     thoughtText: string,
     username: string,
-    createdAt; Schema.Types.Date,
+    createdAt: Schema.Types.Date,
     reactions: [typeof reactionSchema]
 },
 
