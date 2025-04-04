@@ -1,5 +1,5 @@
 import express from 'express';
-import routes from './routes/index.js';
+import routes from './routes/api/index.js';
 import db from './config/connection.js';
 
 await db();

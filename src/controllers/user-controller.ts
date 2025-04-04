@@ -77,7 +77,10 @@ export const deleteUser = async (req: Request, res: Response) => {
 
         await Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
         return res.json({ message: 'User and respective thoughts were deleted' });
-    }
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json(err);
+      }
 
 }
 

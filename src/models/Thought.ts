@@ -7,7 +7,7 @@ interface IThought extends Document {
     username: string,
     createdAt: Schema.Types.Date,
     reactions: [typeof reactionSchema]
-},
+}
 
 const thoughtSchema = new Schema<IThought>(
     {

@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "Build an API from scratch for a social network application where users can share their thoughts, react to friends' thoughts, and create a friend list.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "npx tsc",
     "start": "npm run build && node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node dist/seeds/index.js"
+    "seed": "node dist/seeds/index.js",
+    "dev": "nodemon server.js",
+    "clean": "node seed/cleanDB.js",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -20,6 +24,7 @@
   "devDependencies": {
     "@types/express": "^5.0.1",
     "@types/mongoose": "^5.11.96",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "nodemon": "^3.1.9"
   }
 }
