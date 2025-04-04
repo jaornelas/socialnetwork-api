@@ -11,8 +11,11 @@ import {
   removeReaction,
 } from '../../controllers/thought-controller.js';
 
+
 // /api/thoughts
-router.route('/').get(getThoughts).post(createThought);
+router.route('/')
+    .get(getThoughts)
+    .post(createThought);
 
 // /api/thoughts/:thoughtId
 router.route('/:thoughtId').get(getSingleThought).put(updateThought).delete(deleteThought);
