@@ -25,6 +25,10 @@ export const getUserByID = async (req: Request, res: Response) => {
         if (!dbUserData) {
             return res.status(404).json({ message: 'No user with this ID' })
         }
+        return res.json(dbUserData);
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json(err);
     }
 }
 
@@ -63,7 +67,7 @@ export const updateUser = async (req: Request, res: Response) => {
 }
 
 //delete a user
-export const deleteUsers = async (req: Request, res: Response) => {
+export const deleteUser = async (req: Request, res: Response) => {
     try {
         const dbUserData = await User.findOneAndDelete({ _id: req.params.userId })
 
