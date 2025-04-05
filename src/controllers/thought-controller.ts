@@ -1,7 +1,10 @@
 import { Request, Response } from 'express';
 import { Thought, User } from '../models/index.js'
 
-//get all thoughts
+/**
+ * GET All Thoughts /thoughts
+ * @returns an array of Thoughts
+*/
 export const getThoughts = async (_req: Request, res: Response) => {
     try {
         const dbThoughtData = await Thought.find()
