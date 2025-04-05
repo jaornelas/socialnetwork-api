@@ -8,8 +8,8 @@ dotenv.config();
 const seedAll = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialDB', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      // Removed useNewUrlParser as it is no longer needed
+      // Removed useUnifiedTopology as it is no longer a valid option
     });
 
     console.log('✅ Connected to MongoDB');
