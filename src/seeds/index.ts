@@ -7,7 +7,7 @@ dotenv.config();
 
 const seedAll = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialDB', {
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/socialnetwork', {
       // Removed useNewUrlParser as it is no longer needed
       // Removed useUnifiedTopology as it is no longer a valid option
     });
