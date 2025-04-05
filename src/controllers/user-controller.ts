@@ -7,10 +7,10 @@ export const getUsers = async (_req: Request, res: Response) => {
         const dbUserData = await User.find()
             .select('-__v')
 
-        return res.json(dbUserData)
+        res.json(dbUserData)
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 }
 

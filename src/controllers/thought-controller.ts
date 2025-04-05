@@ -2,15 +2,15 @@ import { Request, Response } from 'express';
 import { Thought, User } from '../models/index.js'
 
 //get all thoughts
-export const getThoughts = async (_req: Request, res: Response): Promise<void> => {
+export const getThoughts = async (_req: Request, res: Response) => {
     try {
         const dbThoughtData = await Thought.find()
             .sort({ createdAt: -1 });
 
-        return res.json(dbThoughtData);
+        res.json(dbThoughtData);
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 }
 
@@ -20,13 +20,13 @@ export const getSingleThought = async (req: Request, res: Response) => {
         const dbThoughtData = await Thought.findOne({ _id: req.params.thoughtId });
 
         if (!dbThoughtData) {
-            return res.status(404).json({ message: 'No thoughts with this ID' });
+            res.status(404).json({ message: 'No thoughts with this ID' });
         }
 
-        return res.json(dbThoughtData);
+        res.json(dbThoughtData);
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 }
 
@@ -42,13 +42,13 @@ export const createThought = async (req: Request, res: Response) => {
         );
 
         if (!dbUserData) {
-            return res.status(404).json({ message: 'Thought created but could not find user with this ID' });
+            res.status(404).json({ message: 'Thought created but could not find user with this ID' });
         }
 
-        return res.json({ message: 'Thought successfully created!' });
+        res.json({ message: 'Thought successfully created!' });
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 }
 
@@ -59,12 +59,12 @@ export const updateThought = async (req: Request, res: Response) => {
             { $set: req.body },
             { runValidators: true, new: true });
         if (!dbThoughtData) {
-            return res.status(404).json({ message: 'No thought with this ID' });
+            res.status(404).json({ message: 'No thought with this ID' });
         }
-        return res.json(dbThoughtData);
+        res.json(dbThoughtData);
     } catch (err: any) {
         console.log(err);
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 };
 
@@ -74,7 +74,7 @@ export const deleteThought = async (req: Request, res: Response) => {
         const dbThoughtData = await Thought.findOneAndDelete({ _id: req.params.thoughtId })
 
         if (!dbThoughtData) {
-            return res.status(404).json({ message: 'No thought with this id!' });
+            res.status(404).json({ message: 'No thought with this id!' });
         }
 
         // remove thought id from user's `thoughts` field
@@ -85,13 +85,13 @@ export const deleteThought = async (req: Request, res: Response) => {
         );
 
         if (!dbUserData) {
-            return res.status(404).json({ message: 'Thought created but could not find user with this ID' });
+            res.status(404).json({ message: 'Thought created but could not find user with this ID' });
         }
 
-        return res.json({ message: 'Thought successfully deleted!' });
+        res.json({ message: 'Thought successfully deleted!' });
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 }
 
@@ -105,13 +105,13 @@ export const addReaction = async (req: Request, res: Response) => {
         );
 
         if (!dbThoughtData) {
-            return res.status(404).json({ message: 'No thought with this ID' });
+            res.status(404).json({ message: 'No thought with this ID' });
         }
 
-        return res.json(dbThoughtData);
+        res.json(dbThoughtData);
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 }
 
@@ -125,12 +125,12 @@ export const removeReaction = async (req: Request, res: Response) => {
         );
 
         if (!dbThoughtData) {
-            return res.status(404).json({ message: 'No thought with this ID' });
+            res.status(404).json({ message: 'No thought with this ID' });
         }
 
-        return res.json(dbThoughtData);
+        res.json(dbThoughtData);
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 }
