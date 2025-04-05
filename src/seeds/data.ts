@@ -6,41 +6,45 @@ dotenv.config();
 
 const users = [
     {
-        username: 'allison_apple',
-        email: 'alice@example.com',
+        username: 'pink_panther',
+        email: 'pinky@panther.com',
     },
     {
-        username: 'batman',
-        email: 'batman@example.com',
+        username: 'vegeta',
+        email: 'vegeta@supersaiyans.com',
     },
     {
-        username: 'cheech&chong',
-        email: 'cheech&chong@example.com',
+        username: 'flyingFish',
+        email: 'flyingFish@reels.com',
+    },
+    {
+        username: 'stephenkingfan',
+        email: 'theshining@kingfans.com',
     },
 ];
 
 const thoughts = [
     {
-        thoughtText: 'Really enjoying this social media site!',
-        username: 'allison_apple',
+        thoughtText: 'I really hope I pull of this robbery',
+        username: 'pink_panther',
         reactions: [
             {
-                reactionBody: 'Yes, queen!',
-                username: 'batman',
+                reactionBody: 'How much are you going for?!',
+                username: 'vegeta',
             },
             {
-                reactionBody: 'Love that for you!',
-                username: 'cheech&chong',
+                reactionBody: 'This sounds like a great idea for a book!',
+                username: 'stephenkingfan',
             },
         ],
     },
     {
-        thoughtText: 'I ♥️ neighborhood watch',
-        username: 'batman',
+        thoughtText: 'That dang Kakarot is always getting in my way',
+        username: 'vegeta',
         reactions: [
             {
                 reactionBody: 'ummm... ok',
-                username: 'cheech&chong',
+                username: 'flyingFish',
             },
         ],
     },
@@ -60,18 +64,18 @@ const seedData = async () => {
         await Thought.deleteMany();
 
         // Create users
-        const [allison, batman, cheech] = await User.insertMany(users);
+        const [pinky, vegeta, flyingfish, stephenking] = await User.insertMany(users);
         // Add some friendships
-        await User.findByIdAndUpdate(allison._id, {
-            $addToSet: { friends: [batman._id, cheech._id] }
+        await User.findByIdAndUpdate(pinky._id, {
+            $addToSet: { friends: [vegeta._id, stephenking._id, flyingfish] }
         });
 
-        await User.findByIdAndUpdate(batman._id, {
-            $addToSet: { friends: [allison._id] }
+        await User.findByIdAndUpdate(vegeta._id, {
+            $addToSet: { friends: [pinky._id, flyingfish._id] }
         });
 
-        await User.findByIdAndUpdate(cheech._id, {
-            $addToSet: { friends: [allison._id] }
+        await User.findByIdAndUpdate(stephenking._id, {
+            $addToSet: { friends: [vegeta._id] }
         });
 
         // Create thoughts and attach to users
