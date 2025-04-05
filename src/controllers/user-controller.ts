@@ -23,12 +23,12 @@ export const getUserByID = async (req: Request, res: Response) => {
             .populate('thoughts');
 
         if (!dbUserData) {
-            return res.status(404).json({ message: 'No user with this ID' })
+            res.status(404).json({ message: 'No user with this ID' })
         }
-        return res.json(dbUserData);
+        res.json(dbUserData);
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 }
 
@@ -36,10 +36,10 @@ export const getUserByID = async (req: Request, res: Response) => {
 export const createNewUser = async (req: Request, res: Response) => {
     try {
         const dbUserData = await User.create(req.body);
-        return res.json(dbUserData)
+        res.json(dbUserData)
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err)
+        res.status(500).json(err)
     }
 }
 
@@ -56,13 +56,13 @@ export const updateUser = async (req: Request, res: Response) => {
         );
 
         if (!dbUserData) {
-            return res.status(404).json({ message: 'No users with this ID' });
+            res.status(404).json({ message: 'No users with this ID' });
         }
 
-        return res.json(dbUserData);
+        res.json(dbUserData);
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err)
+        res.status(500).json(err)
     }
 }
 
@@ -72,15 +72,17 @@ export const deleteUser = async (req: Request, res: Response) => {
         const dbUserData = await User.findOneAndDelete({ _id: req.params.userId })
 
         if (!dbUserData) {
-            return res.status(404).json({ message: 'No users with this ID' });
+            res.status(404).json({ message: 'No users with this ID' });
         }
 
-        await Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
-        return res.json({ message: 'User and respective thoughts were deleted' });
+        if (dbUserData) {
+            await Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
+        }
+        res.json({ message: 'User and respective thoughts were deleted' });
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err);
-      }
+        res.status(500).json(err);
+    }
 
 }
 
@@ -92,13 +94,13 @@ export const addFriend = async (req: Request, res: Response) => {
             { new: true });
 
         if (!dbUserData) {
-            return res.status(404).json({ message: 'No user with this ID' });
+            res.status(404).json({ message: 'No user with this ID' });
         }
 
-        return res.json(dbUserData);
+        res.json(dbUserData);
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 }
 
@@ -110,12 +112,12 @@ export const removeFriend = async (req: Request, res: Response) => {
             { new: true });
 
         if (!dbUserData) {
-            return res.status(404).json({ message: 'No user with this ID' });
+            res.status(404).json({ message: 'No user with this ID' });
         }
 
-        return res.json(dbUserData);
+        res.json(dbUserData);
     } catch (err) {
         console.log(err);
-        return res.status(500).json(err);
+        res.status(500).json(err);
     }
 };
