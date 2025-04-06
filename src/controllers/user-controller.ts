@@ -43,20 +43,20 @@ export const createNewUser = async (req: Request, res: Response) => {
 //update a user
 export const updateUser = async (req: Request, res: Response) => {
     try {
-        const updated = await User.findOneAndUpdate(
+        const dbUserData = await User.findOneAndUpdate(
             { _id: req.params.userId },
             { $set: req.body },
             {
-                runValidators: true,
                 new: true,
+                runValidators: true,
             }
         );
 
-        if (!updated) {
+        if (!dbUserData) {
             res.status(404).json({ message: 'No users with this ID' });
         }
 
-        res.json(updated);
+        res.json(dbUserData);
     } catch (err) {
         res.status(500).json(err)
     }
