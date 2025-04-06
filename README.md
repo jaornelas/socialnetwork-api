@@ -35,13 +35,13 @@ Next you'll be seeding the project with provided sample data. Finally running th
 
 -GET routes to return all users and all thoughts.<br>
 -GET routes to return a single user and a single thought by id. <br>
-[GET Demo]('https://drive.google.com/file/d/18mcWz8feD2mvZ71lh-NSs4r8sRUmY0IO/view')
+[Demo Video]('https://drive.google.com/file/d/18mcWz8feD2mvZ71lh-NSs4r8sRUmY0IO/view')
 
 ### POST, PUT, DELETE
 
 -POST, PUT, and DELETE routes for users. <br>
 -POST, PUT, and DELETE routes for thoughts. <br>
-[POST, PUT DELETE Demo]('https://drive.google.com/file/d/1PItudhV09Wsi0qrH6pG4vOQXHxPCwn_M/view')
+[Demo Video]('https://drive.google.com/file/d/1PItudhV09Wsi0qrH6pG4vOQXHxPCwn_M/view')
 
 
 ### POST & DELETE
