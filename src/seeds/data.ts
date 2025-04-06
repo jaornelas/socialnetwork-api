@@ -48,6 +48,16 @@ const thoughts = [
             },
         ],
     },
+    {
+        thoughtText: 'Swimming is such a good way to excercise your whole body',
+        username: 'flyingFish',
+        reactions: [
+            {
+                reactionBody: 'I could not agree more',
+                username: 'vegeta',
+            }
+        ]
+    }
 ];
 
 const seedData = async () => {
@@ -65,6 +75,7 @@ const seedData = async () => {
 
         // Create users
         const [pinky, vegeta, flyingfish, stephenking] = await User.insertMany(users);
+
         // Add some friendships
         await User.findByIdAndUpdate(pinky._id, {
             $addToSet: { friends: [vegeta._id, stephenking._id, flyingfish] }

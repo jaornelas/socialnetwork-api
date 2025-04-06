@@ -9,7 +9,6 @@ export const getUsers = async (_req: Request, res: Response) => {
 
         res.json(dbUserData)
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 }
@@ -27,7 +26,6 @@ export const getUserByID = async (req: Request, res: Response) => {
         }
         res.json(dbUserData);
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 }
@@ -38,7 +36,6 @@ export const createNewUser = async (req: Request, res: Response) => {
         const dbUserData = await User.create(req.body);
         res.json(dbUserData)
     } catch (err) {
-        console.log(err);
         res.status(500).json(err)
     }
 }
@@ -46,7 +43,7 @@ export const createNewUser = async (req: Request, res: Response) => {
 //update a user
 export const updateUser = async (req: Request, res: Response) => {
     try {
-        const dbUserData = await User.findOneAndUpdate(
+        const updated = await User.findOneAndUpdate(
             { _id: req.params.userId },
             { $set: req.body },
             {
@@ -55,13 +52,12 @@ export const updateUser = async (req: Request, res: Response) => {
             }
         );
 
-        if (!dbUserData) {
+        if (!updated) {
             res.status(404).json({ message: 'No users with this ID' });
         }
 
-        res.json(dbUserData);
+        res.json(updated);
     } catch (err) {
-        console.log(err);
         res.status(500).json(err)
     }
 }
@@ -78,9 +74,8 @@ export const deleteUser = async (req: Request, res: Response) => {
         if (dbUserData) {
             await Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
         }
-        res.json({ message: 'User and respective thoughts were deleted' });
+        res.json({ message: 'User and their thoughts were deleted' });
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 
@@ -99,7 +94,6 @@ export const addFriend = async (req: Request, res: Response) => {
 
         res.json(dbUserData);
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 }
@@ -117,7 +111,6 @@ export const removeFriend = async (req: Request, res: Response) => {
 
         res.json(dbUserData);
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 };

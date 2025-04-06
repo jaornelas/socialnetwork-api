@@ -5,9 +5,9 @@
 
 - [Description](#description)
 - [Instructions](#instructions)
+- [Demonstration](#demonstration)
 - [Technologies](#technologies)
 - [Contributions](#contributions)
-- [Instruction](#instruction)
 - [Questions](#questions)
 
 
@@ -26,32 +26,36 @@ npm i; npm run build; npm run seed; npm start
 First you're installing the dependencies needed for this project, then you're compiling your TypeScript files into JavaScript. 
 Next you'll be seeding the project with provided sample data. Finally running the start command to test the finished result. 
 
-## Demonstration Videos
+## Demonstration 
+<br><br>
+![Demonstration](./src/utils/img/demo.png)
+
 
 ### GET
 
-GET routes to return all users and all thoughts.
-GET routes to return a single user and a single thought by id.
+-GET routes to return all users and all thoughts.<br>
+-GET routes to return a single user and a single thought by id. <br>
+[GET Routes Demo Video]('https://drive.google.com/file/d/18mcWz8feD2mvZ71lh-NSs4r8sRUmY0IO/view')
 
 ### POST, PUT, DELETE
 
-POST, PUT, and DELETE routes for users.
+-POST, PUT, and DELETE routes for users. <br>
+-POST, PUT, and DELETE routes for thoughts. <br>
+[POST, PUT DELETE Demo]('#')
 
-
-POST, PUT, and DELETE routes for thoughts.
 
 ### POST & DELETE
 
-POST and DELETE routes for a user's friend list.
+-POST and DELETE routes for a user's friend list.
+-POST and DELETE routes for reactions to thoughts.
 
 
-POST and DELETE routes for reactions to thoughts.
 ## Technologies
 * JavaScript
 * TypeScript
 * NoSQL (MongoDB)
 
-## Contribution
+## Contributions
 Boiler plate code used throughout Module 17, and XPert Learning Assistant
 
 ## Questions 
