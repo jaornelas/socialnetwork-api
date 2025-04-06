@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import mongoose from 'mongoose';
 
 interface IUser extends Document {
     username: string,
@@ -7,7 +8,7 @@ interface IUser extends Document {
     friends: Schema.Types.ObjectId[],
 }
 
-const userSchema = new Schema<IUser>(
+const userSchema = new mongoose.Schema<IUser>(
     {
         username: {
             type: String,
@@ -23,13 +24,13 @@ const userSchema = new Schema<IUser>(
         },
         thoughts: [
             {
-                type: Schema.Types.ObjectId,
+                type: mongoose.Schema.Types.ObjectId,
                 ref: 'Thought',
             },
         ], 
         friends: [
             {
-                type: Schema.Types.ObjectId, 
+                type: mongoose.Schema.Types.ObjectId, 
                 ref: 'User', 
             },
         ],
@@ -46,6 +47,6 @@ userSchema.virtual('friendCount').get(function () {
     return this.friends.length;
 });
 
-const User = model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 export default User;

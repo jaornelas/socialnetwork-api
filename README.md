@@ -35,7 +35,7 @@ Next you'll be seeding the project with provided sample data. Finally running th
 
 -GET routes to return all users and all thoughts.<br>
 -GET routes to return a single user and a single thought by id. <br>
-[GET Routes Demo Video]('https://drive.google.com/file/d/18mcWz8feD2mvZ71lh-NSs4r8sRUmY0IO/view')
+[GET Demo]('https://drive.google.com/file/d/18mcWz8feD2mvZ71lh-NSs4r8sRUmY0IO/view')
 
 ### POST, PUT, DELETE
 
@@ -46,8 +46,9 @@ Next you'll be seeding the project with provided sample data. Finally running th
 
 ### POST & DELETE
 
--POST and DELETE routes for a user's friend list.
--POST and DELETE routes for reactions to thoughts.
+-POST and DELETE routes for a user's friend list. <br>
+-POST and DELETE routes for reactions to thoughts. <br>
+[POST & DELETE Demo]('#')
 
 
 ## Technologies
