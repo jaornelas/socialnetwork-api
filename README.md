@@ -41,7 +41,8 @@ Next you'll be seeding the project with provided sample data. Finally running th
 
 -POST, PUT, and DELETE routes for users. <br>
 -POST, PUT, and DELETE routes for thoughts. <br>
-[Demo Video](https://drive.google.com/file/d/1PItudhV09Wsi0qrH6pG4vOQXHxPCwn_M/view)
+[User Demo Video](https://drive.google.com/file/d/1PItudhV09Wsi0qrH6pG4vOQXHxPCwn_M/view)
+[Thought Demo Video]()
 
 
 ### POST & DELETE
