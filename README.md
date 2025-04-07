@@ -41,15 +41,14 @@ Next you'll be seeding the project with provided sample data. Finally running th
 
 -POST, PUT, and DELETE routes for users. <br>
 -POST, PUT, and DELETE routes for thoughts. <br>
-[User Demo Video](https://drive.google.com/file/d/1PItudhV09Wsi0qrH6pG4vOQXHxPCwn_M/view)
-[Thought Demo Video]()
-
+[Demo Video](https://drive.google.com/file/d/1ggMbRIDMzrz4OYxKgZOemrcQduzERyeq/view) <br>
+ 
 
 ### POST & DELETE
 
 -POST and DELETE routes for a user's friend list. <br>
 -POST and DELETE routes for reactions to thoughts. <br>
-[POST & DELETE Demo]('#')
+[POST & DELETE Demo](https://drive.google.com/file/d/12V-e29jp4mIYGs4ymr8rnRuqcvvMtlKl/view)
 
 
 ## Technologies
